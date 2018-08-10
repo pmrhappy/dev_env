@@ -26,3 +26,10 @@ RUN python get-pip.py
 RUN cd && git clone https://github.com/pmrhappy/vimrc.git && cp -r vimrc/. ~ && rm -rd vimrc
 RUN ~/scripts/install_dep_tools
 
+# install docker (for Docker-in-Docker usage)
+RUN yes | apt-get install apt-transport-https ca-certificates software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+RUN apt-key fingerprint 0EBFCD88
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+RUN yes | apt-get update
+RUN yes | apt-get install docker-ce
