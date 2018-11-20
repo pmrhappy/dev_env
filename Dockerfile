@@ -12,6 +12,8 @@ RUN apt-get install git -y
 RUN git config --global alias.st status
 RUN git config --global alias.co checkout
 RUN git config --global alias.br branch
+RUN git config --global rerere.enabled true
+RUN git config --global push.default current
 RUN echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
 RUN apt-get install tig -y
 
