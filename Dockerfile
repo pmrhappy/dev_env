@@ -14,15 +14,19 @@ RUN git config --global alias.co checkout
 RUN git config --global alias.br branch
 RUN git config --global rerere.enabled true
 RUN git config --global push.default current
-RUN echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
+RUN echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc && \
+    echo "export PATH=${PATH}:/mnt/scripts" >> ~/.bashrc
 RUN apt-get install tig -y
+
+RUN apt-get install build-essential -y
+RUN apt-get install rsync -y
 
 # python related tools
 RUN apt-get install curl -y
-RUN apt-get install python2.7 -y
-RUN ln -s `which python2.7` /usr/bin/python
+RUN apt-get install python2.7 python-dev -y
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python get-pip.py
+RUN pip install pycscope
 
 # for vimrc and plugins
 RUN cd && git clone https://github.com/pmrhappy/vimrc.git && cp -r vimrc/. ~ && rm -rd vimrc
