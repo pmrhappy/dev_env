@@ -1,0 +1,28 @@
+#!/bin/bash
+#apt-get update
+apt-get install sudo -y
+apt-get install vim -y 
+apt-get install silversearcher-ag -y
+apt-get install cscope -y
+apt-get install ssh -y
+
+# git related tools
+apt-get install git -y
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global rerere.enabled true
+git config --global push.default current
+echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc && \
+echo "export PATH=${PATH}:/mnt/scripts" >> ~/.bashrc
+apt-get install tig -y
+
+apt-get install build-essential -y
+apt-get install rsync -y
+
+# python related tools
+apt-get install curl -y
+apt-get install python2.7 python-dev -y
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+pip install pycscope

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# for vimrc and plugins
+cd && git clone https://github.com/pmrhappy/vimrc.git && cp -r vimrc/. ~ && rm -rd vimrc
+~/scripts/install_dep_tools
