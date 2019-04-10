@@ -4,6 +4,7 @@ COPY ./setup_env /
 COPY ./install_vimrc_and_plugins /
 
 ENV TIME_ZONE=Asia/Taipei
+ENV TERM=xterm-256color
 RUN ln -snf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime && echo ${TIME_ZONE} > /etc/timezone
 RUN apt-get update
 RUN /setup_env
