@@ -14,6 +14,11 @@ git config --global alias.br branch
 git config --global alias.changelog 'log --oneline --no-merges --pretty=format:"%s"'
 git config --global rerere.enabled true
 git config --global push.default current
+
+# set git difftool as vimdiff for each file
+git config --global diff.tool vimdiff
+git config --global difftool.prompt false
+
 echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc && \
 echo "export PATH=${PATH}:/mnt/scripts" >> ~/.bashrc
 apt-get install tig -y
